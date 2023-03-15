@@ -23,6 +23,14 @@ class LinkedList:
                 current = current.next
             current.next = Node(value)
     
+    def prepend(self, value):
+        if self.head is None:
+            self.head = Node(value)
+        else:
+            previous = self.head
+            self.head = Node(value)
+            self.head.next = previous 
+    
     def length(self):
         len = 0
         current = self.head
@@ -52,3 +60,6 @@ if __name__ == '__main__':
     list1.show_elements()
     print("Length of linked list = %s" % list1.length())
     print("Element at position 1: %s" % list1.get_element(1))
+
+    list1.prepend(3)
+    list1.show_elements()
